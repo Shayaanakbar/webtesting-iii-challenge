@@ -28,8 +28,10 @@ describe('<Display />', () => {
     expect(getByText(/closed/i)).toHaveClass('led red-led');
   });
 
+  it('should have unlocked green, closed red for unlocked but door is closed', () => {
+    const { getByText } = render(<Display closed={true} locked={false}/>)
 
-
-
+    expect(getByText(/closed/i)).toHaveClass('led red-led');
+  })
 
 })
