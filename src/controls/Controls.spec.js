@@ -29,6 +29,21 @@ describe('<Controls />', () => {
     expect(openButton).toBeInTheDocument();
   })
 
+  it('should expect open gate to be disabled', () => {
+    const { getByText } = render(<Controls locked={true} closed={true}/>)
+
+    const closeButton = getByText(/open gate/i)
+    const lockButton = getByText(/unlock gate/i)
+
+    fireEvent.click(lockButton);
+    fireEvent.click(closeButton);
+
+    expect(getByText(/open gate/i)).toBeDisabled();
+
+  })
+
+
+
 
 
 });
