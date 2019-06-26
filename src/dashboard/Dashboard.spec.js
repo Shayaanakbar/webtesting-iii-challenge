@@ -8,4 +8,13 @@ describe('<Dashboard />', () => {
     it('Dashboard renders', () => {
      expect(render(<Dashboard/>)).not.toBeNull();
   });
+
+    it('Dashboard should show controls and display', () => {
+      const { getByText } = render(<Dashboard/>)
+
+      expect(getByText(/unlocked/i)).toBeInTheDocument();
+      expect(getByText(/Open/i)).toBeInTheDocument();
+      expect(getByText(/Lock Gate/i)).toBeInTheDocument();
+      expect(getByText(/Close Gate/i)).toBeInTheDocument();
+    });
 })
