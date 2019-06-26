@@ -14,4 +14,22 @@ describe('<Display />', () => {
     const { getByText } = render(<Display closed={false}/>)
     expect(getByText(/Open/i)).toBeInTheDocument();
   });
+
+  it('should default to the red-led class when locked/close', () => {
+    const { getByText } = render(<Display closed={false} locked={true}/>)
+
+    const locked = getByText(/locked/i);
+    expect(locked).toHaveClass('green-led');
+  });
+
+  it('should default to the green-led class when unlocked', () => {
+    const { getByText } = render(<Display closed={false} locked={false}/>)
+
+    expect(getByText(/closed/i)).toHaveClass('led red-led');
+  });
+
+
+
+
+
 })
