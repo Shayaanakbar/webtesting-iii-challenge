@@ -49,12 +49,4 @@ describe('<Controls />', () => {
 
 
   });
-
-  it('should expect the locked toggle button to be disabled if the gate is open', () => {
-    const { getByText }  = render(<Controls locked={true} closed={false}/>)
-
-    expect(getByText(/Close Gate/i)).toBeDisabled();
-
-
-  })
 });
