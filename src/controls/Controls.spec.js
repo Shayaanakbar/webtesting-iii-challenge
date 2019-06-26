@@ -14,5 +14,21 @@ describe('<Controls />', () => {
 
     expect(lockButton).toBeInTheDocument();
     expect(closeButton).toBeInTheDocument();
-  });
+  })
+
+  it('should provide buttons to toggle unlock and open state', () => {
+    const { getByText } = render(<Controls locked={true} closed={true}/>)
+
+    const unlockButton = getByText(/unlock Gate/i)
+    const openButton = getByText(/open gate/i)
+
+    fireEvent.click(unlockButton)
+    fireEvent.click(openButton)
+
+    expect(unlockButton).toBeInTheDocument();
+    expect(openButton).toBeInTheDocument();
+  })
+
+
+
 });
